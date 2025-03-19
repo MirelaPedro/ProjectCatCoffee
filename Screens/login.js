@@ -5,7 +5,7 @@ export default function Login(){
     return(
         <ImageBackground source={background} style={{flex: 1, width: '100%', height: '100%'}}>
             <View style={StyleSheet.container}>
-                <Text style={styles.top}>LOGIN</Text>
+                <Text style={styles.top}>LOGIN.</Text>
 
                 <View style={styles.inputs}>
                     <TextInput 
