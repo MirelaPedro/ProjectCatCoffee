@@ -1,22 +1,23 @@
-/* import {Profile, Favorites} from "./components/gallery"; */
-import { View, StyleSheet} from "react-native";
-import MariDoida, {Adeus} from "./components/MariDoida";
-import Home from "./Screens/home";
-import Login from "./Screens/login";
 // Only import react-native-gesture-handler on native platforms
 import 'react-native-gesture-handler';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+
+import Login from './Screens/login';
+import Home from './Screens/home';
+
 
 export default function App() {
+
+  const Stack = createStackNavigator();
+
   return (
-    <View style={styles.container}>
-      <Login/>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name='Home' component={Home}/>
+        <Stack.Screen name='Login' component={Login}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container:{
-    flex: 1
-  }
-})
 
