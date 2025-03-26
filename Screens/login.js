@@ -1,7 +1,8 @@
 import {Text, ImageBackground, View, StyleSheet, TextInput, Button} from 'react-native';
 import background from '../assets/catcoffee00.jpg';
+import Home from './home';
 
-export default function Login(){
+export default function Login({navigation}){
     return(
         <ImageBackground source={background} style={{flex: 1, width: '100%', height: '100%'}}>
             <View style={StyleSheet.container}>
@@ -24,6 +25,7 @@ export default function Login(){
                     style={styles.buttom}
                     title="Enter"
                     color="#f4bfad"
+                    onPress={() => navigation.navigate('Home')}
                     />
                 </View>
             </View>

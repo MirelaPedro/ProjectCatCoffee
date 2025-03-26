@@ -1,7 +1,7 @@
 import {Text, Image, ImageBackground, View, StyleSheet} from 'react-native';
 import background from '../assets/catcoffee00.jpg';
 
-export default function Home(){
+export default function Home({navigation}){
     return(
         <ImageBackground source={background} style={{flex: 1, width: '100%', height: '100%'}}>
             <View style={StyleSheet.container}>
