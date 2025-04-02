@@ -6,7 +6,7 @@ export default function Login({navigation}){
     return(
         <ImageBackground source={background} style={{flex: 1, width: '100%', height: '100%'}}>
             <View style={StyleSheet.container}>
-                <Text style={styles.top}>LOGIN.</Text>
+                <Text style={styles.top}>LOGIN</Text>
 
                 <View style={styles.inputs}>
                     <TextInput 
@@ -25,7 +25,7 @@ export default function Login({navigation}){
                     style={styles.buttom}
                     title="Enter"
                     color="#f4bfad"
-                    onPress={() => navigation.navigate('Home')}
+                    onPress={() => navigation.navigate('HomeTab')}
                     />
                 </View>
             </View>

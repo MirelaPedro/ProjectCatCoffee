@@ -1,5 +1,5 @@
 import {Text, Image, ImageBackground, View, StyleSheet} from 'react-native';
-import background from '../assets/catcoffee00.jpg';
+import background from '../assets/backgroundCoffee.jpg';
 
 export default function Home({navigation}){
     return(
@@ -28,6 +28,7 @@ export default function Home({navigation}){
 
 const styles = StyleSheet.create({
     container: {
+        padding: 25,
         flex: 1
     },
 
@@ -40,29 +41,28 @@ const styles = StyleSheet.create({
     },
 
     images: {
-        margin: 20,
+        margin: 10,
         flexDirection: 'row',
         justifyContent: 'space-evenly'
     },
 
     //Text
     top: {
-        margin: 50,
+        padding: 15,
         alignSelf: 'flex-start',
-        color: '#ffff',
+        color: '#492108',
         fontSize: 40
     },
 
     middle: {
         alignSelf: 'flex-end',
-        color: '#ffff',
+        color: '#492108',
         fontSize: 32
     },
 
     bottom: {
-        marginTop: 150,
         alignSelf: 'center',
-        color: '#ffff',
+        color: '#492108',
         fontSize: 32
     }
 })
