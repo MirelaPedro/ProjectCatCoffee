@@ -7,6 +7,7 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
 import Login from './Screens/login';
 import Home from './Screens/home';
+import Counter from '../Screens/counter';
 
 
 export default function App() {

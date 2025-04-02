@@ -11,6 +11,7 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import Login from './Screens/login';
 import Home from './Screens/home';
 import Feed from './Screens/feed';
+import Counter from './Screens/counter';
 
 
 function BottomTabs(){
@@ -55,6 +56,15 @@ function BottomTabs(){
             <MaterialIcons name='feed' size={30} color='#ffff'/>
           )
         }}/>
+
+        {/* COUNTER */}
+        <BottomTab.Screen name='Counter' component={Counter}
+        options={{
+          tabBarIcon: () =>(
+            <MaterialIcons name='counter' size={30} color='#ffff'/>
+          )
+        }}/>
+
       </BottomTab.Navigator>
   )
 }
