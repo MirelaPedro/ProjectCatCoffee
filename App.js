@@ -7,11 +7,14 @@ import { NavigationContainer } from '@react-navigation/native';
 
 /* Importando biblioteca para os icones */
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import Fontisto from '@expo/vector-icons/Fontisto';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 import Login from './Screens/login';
 import Home from './Screens/home';
 import Feed from './Screens/feed';
 import Counter from './Screens/counter';
+import Products from './Screens/products';
 
 
 function BottomTabs(){
@@ -57,11 +60,19 @@ function BottomTabs(){
           )
         }}/>
 
+        {/* PRODUCTS */}
+        <BottomTab.Screen name='Products' component={Products}
+        options={{
+          tabBarIcon: () => (
+            <Fontisto name="shopping-bag" size={24} color='#ffff' />
+          )
+        }}/>
+
         {/* COUNTER */}
         <BottomTab.Screen name='Counter' component={Counter}
         options={{
           tabBarIcon: () =>(
-            <MaterialIcons name='counter' size={30} color='#ffff'/>
+            <MaterialCommunityIcons name="counter" size={24} color='#ffff' />
           )
         }}/>
 
