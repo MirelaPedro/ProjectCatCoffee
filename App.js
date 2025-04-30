@@ -10,20 +10,22 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import Fontisto from '@expo/vector-icons/Fontisto';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
+/* ********** IMPORTs de TELAS ********** */
 import Login from './Screens/login';
 import Home from './Screens/home';
 import Feed from './Screens/feed';
 import Counter from './Screens/counter';
 import Products from './Screens/products';
+import SignIn from './Screens/singIn';
 
-
+/* ********* NAVEGAÇÃO BOTTOM TABs */
 function BottomTabs(){
   const BottomTab = createBottomTabNavigator();
 
   return(
     <BottomTab.Navigator
       /* Primeira tela a aparecer quando o projeto rodar */
-      initialRouteName='Home'
+      initialRouteName='Home' 
 
       /* Style da nevegação bottomTab */
       screenOptions={{
@@ -42,7 +44,7 @@ function BottomTabs(){
         headerTitleAlign: 'left'
       }}>
 
-        {/* HOME */}
+        {/* ***** HOME ***** */}
         <BottomTab.Screen name='Home' component={Home}
         /* Colocando um ícone na opção */
         options={{
@@ -52,7 +54,7 @@ function BottomTabs(){
           )
         }}/>
 
-        {/* FEED */}
+        {/* ***** FEED ***** */}
         <BottomTab.Screen name='Feed' component={Feed}
         options={{
           tabBarIcon: () =>(
@@ -60,7 +62,7 @@ function BottomTabs(){
           )
         }}/>
 
-        {/* PRODUCTS */}
+        {/* ***** PRODUCTS ***** */}
         <BottomTab.Screen name='Products' component={Products}
         options={{
           tabBarIcon: () => (
@@ -68,7 +70,7 @@ function BottomTabs(){
           )
         }}/>
 
-        {/* COUNTER */}
+        {/* ***** COUNTER ***** */}
         <BottomTab.Screen name='Counter' component={Counter}
         options={{
           tabBarIcon: () =>(
@@ -90,6 +92,7 @@ export default function App() {
         {/* LOGIN */}
         <Stack.Screen name='Login' component={Login}/>
         <Stack.Screen options={{headerShown:false}} name='HomeTab' component={BottomTabs}/>
+        <Stack.Screen options={{headerShown: false}} name='Sign In' component={SignIn}/>
 
       </Stack.Navigator>
     </NavigationContainer>
