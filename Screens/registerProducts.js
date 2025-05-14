@@ -1,15 +1,37 @@
 import { useState } from "react";
 import { StyleSheet, View, Button, Text, TextInput } from "react-native";
 
+import { db } from "../controller";
+import { collection, addDoc } from "firebase/firestore";
+
 
 export default function RegisterProducts(navigation){
     const [name, setName] = useState("");
     const [image, setImage] = useState("");
-    const [price, setPrice] = useState();
+    const [price, setPrice] = useState("");
+
+    const registerProducts = async () => {
+        try {
+            await addDoc(collection(db, 'produtos'), {
+                name,
+                price: parseFloat(price),
+                image
+            });
+
+            setName('');
+            setPrice('');
+            setImage('');
+
+        } catch (error) {
+            console.log("Erro ao cadastrar o produto: ", error.message);
+        }
+    }
 
     return(
         <View style={styles.container}>
             <Text style={styles.title}> Cadastrar Produtos </Text>
+
+            <Text style={styles.error}>{error}</Text>
 
             <View style={styles.inputs}>
                 <TextInput
@@ -34,7 +56,7 @@ export default function RegisterProducts(navigation){
                 <Button
                 title="Register"
                 color="#f4bfad"
-                /* onPress={} *//>
+                onPress={registerProducts}/>
 
             </View>
         </View>
@@ -72,6 +94,11 @@ const styles = StyleSheet.create({
         borderWidth: 5,
         borderColor: '#ffff',
         fontSize: 32
+    },
+    
+    error:{
+        color: '#ffff',
+        fontSize: 16
     },
 
 

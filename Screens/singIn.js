@@ -31,9 +31,10 @@ export default function SignIn({navigation}){
             {/* TÍTULO */}
             <Text style={styles.top}>Sign In</Text>
 
+            <Text style={styles.error}>{error}</Text>
+
             {/* Sessão Inputs */}
             <View style={styles.inputs}>
-                <Text style={styles.error}>{error}</Text>
 
                 <TextInput 
                 style={styles.input}
@@ -124,13 +125,6 @@ const styles = StyleSheet.create({
     error:{
         color: '#ffff',
         fontSize: 16
-    },
-
-    //BOTTONs
-
-    bottom: {
-        color: '#ffff',
-        fontSize: 32
     },
 
 

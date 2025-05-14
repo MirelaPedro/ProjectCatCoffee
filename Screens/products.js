@@ -56,9 +56,9 @@ export default function Products(navigation){
                 data={products}
                 renderItem={({item}) => (
                     <Cards
-                    name={item.nome}
-                    image={item.imagem}
-                    price={item.valor}
+                    name={item.name}
+                    image={item.image}
+                    price={item.price}
                     />
                 )}
                 keyExtractor={item => item.id}
