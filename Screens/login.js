@@ -1,4 +1,4 @@
-import {Text, ImageBackground, View, StyleSheet, TextInput, Button} from 'react-native';
+import {Text, ImageBackground, View, StyleSheet, TextInput, Button, TouchableOpacity} from 'react-native';
 import { useState } from "react";
 
 import { signInWithEmailAndPassword } from 'firebase/auth';
@@ -10,20 +10,24 @@ import Home from './home';
 export default function Login({navigation}){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
 
     const verificaUser = () => {
         signInWithEmailAndPassword(auth, email, password).then(userCredential => {
             console.log('Usuário Logado!', userCredential.user.email);
-            navigation.navigate('HomeTab')
+            navigation.navigate('HomeTab');
         })
         .catch((error) => {
             console.log('Erro ao logar', error.message);
+            setError(error.message);
         })
     }
     return(
         <ImageBackground source={background} style={{flex: 1, width: '100%', height: '100%'}}>
             <View style={styles.container}>
                 <Text style={styles.top}>LOGIN</Text>
+
+                <Text style={styles.error}>{error}</Text>
 
                 {/* LOGIN */}
                 <View style={styles.inputs}>
@@ -52,15 +56,19 @@ export default function Login({navigation}){
                 </View>
 
                 {/* SING IN */}
+                <View style={styles.signIn}>
+                    <Text style={styles.text}>Don' have a cont?</Text>
 
-                <Text style={styles.text}>Don' have a cont? Sing in.</Text>
+                    <TouchableOpacity
+                    onPress={() => navigation.navigate('Sign In')}><Text style={styles.text}>Sing in.</Text></TouchableOpacity>
+                </View>
 
-                <Button
+                {/* <Button
                 style={styles.buttom}
                 title="Sing In"
                 color="#f4bfad"
                 onPress={() => navigation.navigate('Sign In')}
-                />
+                /> */}
 
             </View>
         </ImageBackground>
@@ -83,6 +91,11 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around'
     },
 
+    signIn:{
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+
     //Text
     top: {
         color: '#ffff',
@@ -101,6 +114,11 @@ const styles = StyleSheet.create({
         borderWidth: 5,
         borderColor: '#ffff',
         fontSize: 32
+    },
+    
+    error:{
+        color: '#ffff',
+        fontSize: 16
     },
 
     //Buttons

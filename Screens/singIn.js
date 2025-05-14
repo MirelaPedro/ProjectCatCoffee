@@ -1,14 +1,17 @@
-import { View, Text, StyleSheet, TextInput, Button } from "react-native";
+import { View, Text, StyleSheet, TextInput, Button, TouchableOpacity } from "react-native";
 import { useState } from "react";
 
 import { createUserWithEmailAndPassword} from "firebase/auth";
 import { auth } from "../controller";
 
+
+/* ******************** DEFAULT FUNCTION ******************* */
 export default function SignIn({navigation}){
 
     //useState: atualiza o estado da variável, é utilizado para atualizar as variáveis em tempo real na tela.
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
 
     //Criando uma função para CADASTRAR o usuário
     const signInUser = () => {
@@ -18,6 +21,7 @@ export default function SignIn({navigation}){
           })
           .catch((error) => {
             console.log('Erro', error.message);
+            setError(error.message);
           });
     }
 
@@ -29,6 +33,8 @@ export default function SignIn({navigation}){
 
             {/* Sessão Inputs */}
             <View style={styles.inputs}>
+                <Text style={styles.error}>{error}</Text>
+
                 <TextInput 
                 style={styles.input}
                 placeholder='E-mail'
@@ -52,18 +58,27 @@ export default function SignIn({navigation}){
                 onPress={signInUser}
                 />
 
-                <Button
+                {/* <Button
                 style={styles.buttom}
                 title="Login"
                 color="#f4bfad"
                 onPress={() => navigation.navigate('Login')}
-                />
+                /> */}
+            </View>
+
+            {/* Sessão Login */}
+            <View style={styles.login}>
+                <Text style={styles.text}>Have a cont?</Text>
+
+                <TouchableOpacity
+                onPress={() => navigation.navigate('Login')}><Text style={styles.text}>Login.</Text></TouchableOpacity>
             </View>
         </View>
     )
 }
 
 
+/* ******************** STYLES ******************* */
 const styles = StyleSheet.create({
 
     //VIEWs 
@@ -80,6 +95,11 @@ const styles = StyleSheet.create({
         padding: 30,
         justifyContent: 'space-around'
     },
+    
+    login:{
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
 
     //TEXTs
     top: {
@@ -94,6 +114,16 @@ const styles = StyleSheet.create({
         borderWidth: 5,
         borderColor: '#ffff',
         fontSize: 32
+    },
+
+    text: {
+        color: '#ffff',
+        fontSize: 32
+    },
+
+    error:{
+        color: '#ffff',
+        fontSize: 16
     },
 
     //BOTTONs
