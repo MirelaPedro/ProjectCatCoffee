@@ -1,13 +1,17 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, Button } from "react-native";
 
 
-export default function Cards({name, image, price}){
+export default function Card({name, image, price}){
     return(
         <View style={styles.card}>
-            <Image style={styles.image} source={image}/>
+            <Image style={styles.image} source={require('../assets/doubleBlack.jpg')}/>
             <View style={styles.texts}>
                 <Text style={styles.text}>{name}:</Text>
                 <Text style={styles.text}>${price}</Text>
+                <Button
+                title="Shop"
+                color="#d19f8e"
+                />
             </View>
         </View>
     )

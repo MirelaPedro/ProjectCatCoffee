@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { View, Text, StyleSheet, ScrollView, FlatList, Image } from "react-native";
 
-import Cards from "../components/cards";
+import Card from "../components/card";
 
 import { db } from "../controller";
 import { collection, getDocs } from "firebase/firestore"; 
@@ -55,7 +55,7 @@ export default function Products(navigation){
                 <FlatList
                 data={products}
                 renderItem={({item}) => (
-                    <Cards
+                    <Card
                     name={item.name}
                     image={item.image}
                     price={item.price}

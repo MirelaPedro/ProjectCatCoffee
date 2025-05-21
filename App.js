@@ -18,6 +18,7 @@ import Counter from './Screens/counter';
 import Products from './Screens/products';
 import SignIn from './Screens/singIn';
 import RegisterProducts from './Screens/registerProducts';
+import ShoppingCart from './Screens/shoppingCart';
 
 /* ********* NAVEGAÇÃO BOTTOM TABs */
 function BottomTabs(){
@@ -71,14 +72,6 @@ function BottomTabs(){
         )
       }}/>
 
-      {/* ***** COUNTER ***** */}
-      <BottomTab.Screen name='Counter' component={Counter}
-      options={{
-        tabBarIcon: () =>(
-          <MaterialCommunityIcons name="counter" size={24} color='#ffff' />
-        )
-      }}/>
-
       {/* ***** REGISTER PRODUCTS ***** */}
       <BottomTab.Screen name='Register Products' component={RegisterProducts}
       options={{
@@ -86,6 +79,21 @@ function BottomTabs(){
           <MaterialIcons name="add" size={24} color='#ffff' />
         )
       }}/>
+
+      {/* ***** SHOPPING CART ****** */}
+      <BottomTab.Screen name='Shop Cart' component={ShoppingCart}
+      options={{tabBarIcon: () => (
+        <MaterialIcons name="shopping-cart" size={24} color="#ffff" />
+      )}}/>
+
+      
+      {/* ***** COUNTER ***** */}
+      {/* <BottomTab.Screen name='Counter' component={Counter}
+      options={{
+        tabBarIcon: () =>(
+          <MaterialCommunityIcons name="counter" size={24} color='#ffff' />
+        )
+      }}/> */}
 
     </BottomTab.Navigator>
   )

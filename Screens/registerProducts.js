@@ -9,6 +9,7 @@ export default function RegisterProducts(navigation){
     const [name, setName] = useState("");
     const [image, setImage] = useState("");
     const [price, setPrice] = useState("");
+    const [error, setError] = useState("");
 
     const registerProducts = async () => {
         try {
@@ -21,9 +22,11 @@ export default function RegisterProducts(navigation){
             setName('');
             setPrice('');
             setImage('');
+            setError('');
 
         } catch (error) {
             console.log("Erro ao cadastrar o produto: ", error.message);
+            setError(error.message);
         }
     }
 
