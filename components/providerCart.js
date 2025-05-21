@@ -9,7 +9,7 @@ export default function ProviderCart({children}){
 
     /* Função para adicionar ao carrinho */
     function addProducts(product){
-        setCart((cart) => [...AuthenticatorAssertionResponse, product]);
+        setCart((anterior) => [...anterior, product]);
     }
 
     return(

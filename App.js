@@ -2,23 +2,26 @@
 import 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+/* import { createDrawerNavigator } from '@react-navigation/drawer'; */
 import { NavigationContainer } from '@react-navigation/native';
+
 
 /* Importando biblioteca para os icones */
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import Fontisto from '@expo/vector-icons/Fontisto';
-import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+/* import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons'; */
 
 /* ********** IMPORTs de TELAS ********** */
 import Login from './Screens/login';
 import Home from './Screens/home';
 import Feed from './Screens/feed';
-import Counter from './Screens/counter';
+/* import Counter from './Screens/counter'; */
 import Products from './Screens/products';
 import SignIn from './Screens/singIn';
 import RegisterProducts from './Screens/registerProducts';
-import ShoppingCart from './Screens/shoppingCart';
+import ProviderCart from './components/providerCart';
+import Cart from './Screens/cart';
+
 
 /* ********* NAVEGAÇÃO BOTTOM TABs */
 function BottomTabs(){
@@ -81,7 +84,7 @@ function BottomTabs(){
       }}/>
 
       {/* ***** SHOPPING CART ****** */}
-      <BottomTab.Screen name='Shop Cart' component={ShoppingCart}
+      <BottomTab.Screen name='Cart' component={Cart}
       options={{tabBarIcon: () => (
         <MaterialIcons name="shopping-cart" size={24} color="#ffff" />
       )}}/>
@@ -104,15 +107,19 @@ export default function App() {
   const Stack = createStackNavigator();
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        {/* LOGIN */}
-        <Stack.Screen options={{headerShown: false}} name='Login' component={Login}/>
-        <Stack.Screen options={{headerShown:false}} name='HomeTab' component={BottomTabs}/>
-        <Stack.Screen options={{headerShown: false}} name='Sign In' component={SignIn}/>
+    <ProviderCart>
+      <NavigationContainer>
+        <Stack.Navigator>
+          {/* LOGIN */}
+          <Stack.Screen options={{headerShown: false}} name='Login' component={Login}/>
+          <Stack.Screen options={{headerShown:false}} name='HomeTab' component={BottomTabs}/>
+          <Stack.Screen options={{headerShown: false}} name='Sign In' component={SignIn}/>
+          <Stack.Screen options={{headerShown: false}} name='Cart' component={Cart}/>
 
-      </Stack.Navigator>
-    </NavigationContainer>
+        </Stack.Navigator>
+      </NavigationContainer>
+    </ProviderCart>
+      
   );
 }
 

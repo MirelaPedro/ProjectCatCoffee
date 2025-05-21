@@ -1,16 +1,17 @@
 import { View, Text, StyleSheet, Image, Button } from "react-native";
 
 
-export default function Card({name, image, price}){
+export default function Card({name, image, price, shop}){
     return(
         <View style={styles.card}>
-            <Image style={styles.image} source={require('../assets/doubleBlack.jpg')}/>
+            <Image style={styles.image} source={image}/>
             <View style={styles.texts}>
                 <Text style={styles.text}>{name}:</Text>
                 <Text style={styles.text}>${price}</Text>
                 <Button
                 title="Shop"
                 color="#d19f8e"
+                onPress={shop}
                 />
             </View>
         </View>
@@ -25,13 +26,15 @@ const styles = StyleSheet.create({
         padding: 15,
         margin: 5,
         alignItems: 'center',
-        justifyContent: 'space-around',
+        justifyContent: 'space-between',
         flexDirection: 'row',
         backgroundColor: "#f4bfad"
     },
 
     texts:{
-        alignItems: 'center'
+        width: 150,
+        alignItems: 'center',
+        justifyContent: 'center'
     },
 
     text: {
