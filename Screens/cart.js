@@ -1,5 +1,4 @@
-import { View, StyleSheet, Text, Image, TouchableOpacity, FlatList, ScrollView} from "react-native";
-import { useState } from "react";
+import { View, StyleSheet, Text, FlatList, ScrollView} from "react-native";
 
 import { useCart } from "../components/providerCart";
 import { CardCart } from "../components/card";
